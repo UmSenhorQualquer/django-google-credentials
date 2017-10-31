@@ -37,7 +37,7 @@ Once authorized you can retrieve a service for further querying like so::
 	from google_credentials.models import Credentials
 	from oauth2client.contrib.django_util.storage import DjangoORMStorage
 
-    storage = DjangoORMStorage(Credentials, 'client_id', settings.GA_CLIENT_ID, 'credentials')
+	storage = DjangoORMStorage(Credentials, 'client_id', settings.GA_CLIENT_ID, 'credentials')
 	credentials = storage.get()
 	http = credentials.authorize(httplib2.Http())
 

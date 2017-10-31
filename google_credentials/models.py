@@ -1,5 +1,5 @@
 from django.db import models
-from oauth2client.django_orm import CredentialsField
+from oauth2client.contrib.django_orm import CredentialsField
 
 
 class Credentials(models.Model):

@@ -1,7 +1,7 @@
 from apiclient.discovery import build
 from django.conf import settings
 import httplib2
-from oauth2client.django_orm import Storage
+from oauth2client.contrib.django_orm import Storage
 from google_credentials.models import Credentials
 
 

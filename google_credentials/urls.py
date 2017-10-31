@@ -1,8 +1,8 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import url
+from google_credentials.views 	import authorize, callback, purge
 
-urlpatterns = patterns(
-    '',
-    url(r'^authorize$', 'google_credentials.views.authorize'),
-    url(r'^callback$', 'google_credentials.views.callback'),
-    url(r'^purge$', 'google_credentials.views.purge'),
-)
+urlpatterns = [
+    url(r'^authorize$', authorize),
+    url(r'^callback$', callback),
+    url(r'^purge$', purge),
+]

@@ -30,10 +30,18 @@ Usage
 Before you can start using a service you have to authorize it with your Google account. To do this open `http://your.domain.com/google-credentials/authorize <http://your.domain.com/google-credentials/authorize>`_ in your browser. 
 
 Once authorized you can retrieve a service for further querying like so::
+	
+	import httplib2
+	from django.conf import settings
+	from apiclient.discovery import build
+	from google_credentials.models import Credentials
+	from oauth2client.contrib.django_util.storage import DjangoORMStorage
 
-    from google_credentials import utils
+    storage = DjangoORMStorage(Credentials, 'client_id', settings.GA_CLIENT_ID, 'credentials')
+	credentials = storage.get()
+	http = credentials.authorize(httplib2.Http())
 
-    service = utils.get_service()
+	service	= build(serviceName='people', version='v1', http=http)
 
 To purge previously generated credentials open `http://your.domain.com/google-credentials/purge <http://your.domain.com/google-credentials/purge>`_ in your browser.
 

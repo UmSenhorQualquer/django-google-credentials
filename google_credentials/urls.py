@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from google_credentials.views 	import authorize, callback, purge
+from google_credentials.views   import authorize, callback, purge
 
 urlpatterns = [
     url(r'^authorize$', authorize),
